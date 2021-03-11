@@ -17,10 +17,10 @@ package validation
 import (
 	"testing"
 
+	commonv1 "github.com/kubeflow/common-v01/job_controller/api/v1"
 	torchv1 "github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1"
-	commonv1 "github.com/kubeflow/common/job_controller/api/v1"
 
-	"k8s.io/api/core/v1"
+	v1 "k8s.io/api/core/v1"
 )
 
 func TestValidateV1PyTorchJobSpec(t *testing.T) {

@@ -18,14 +18,14 @@ import (
 	"strings"
 	"testing"
 
-	"k8s.io/api/core/v1"
+	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
-	"k8s.io/client-go/tools/cache"
 	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/client-go/tools/cache"
 
+	common "github.com/kubeflow/common-v01/job_controller/api/v1"
 	pyv1 "github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1"
-	common "github.com/kubeflow/common/job_controller/api/v1"
 )
 
 const (
@@ -75,8 +75,8 @@ func ConvertPyTorchJobToUnstructured(job *pyv1.PyTorchJob) (*unstructured.Unstru
 		return nil, err
 	}
 	return &unstructured.Unstructured{
-		Object:object,
-	},nil
+		Object: object,
+	}, nil
 }
 
 func GetKey(job *pyv1.PyTorchJob, t *testing.T) string {
